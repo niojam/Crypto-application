@@ -5,6 +5,32 @@
     <title>CryptoApplication</title>
 </head>
 <body>
-    <h1>We will be back soon!</h1>
+    <h2>We will be back soon!</h2>
+    <img src="cryp1.png" alt="Logo">
+    <h4 class="heading">This application will encode or decode your text</h4>
+    <form name="form">
+        <div class="input_text">
+            <label for="source_text">Please input your text</label>
+            <br>
+            <textarea id="source_text" placeholder="Your text here" cols="70" rows="10" ></textarea>
+            <br>
+            <label for="input_key">Please input key if required</label>
+            <br>
+            <textarea name="key" id="input_key" cols="100" rows="2" placeholder="Input your key here"></textarea>
+        </div>
+        <br>
+        <div class="all_buttons">
+            <button class="button1">OTP-encrypt</button>
+            <button class="button2">OTP-decrypt</button>
+            <button class="button3">SHA-2</button>
+            <button class="button4">MD5-decrypt</button>
+        </div>
+        <br>
+        <div class="output">
+            <label for="result"></label>
+            <textarea class="output_text" id="result" cols="30" rows="10" placeholder="Here will be your result"></textarea>
+        </div>
+    </form>
+    <script></script>
 </body>
 </html>
