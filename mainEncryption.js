@@ -15,11 +15,11 @@ function doOtpEncryptionOrDectyption(encode) {
     let message = "";
     if (textToChange.length < 1 || key.length < 1) {
         alert("Please insert text to encrypt and encryption key!");
-        return"Try again"
+        return "Try again"
     }
     if (textToChange.length !== key.length) {
         alert("Text length and key length must be same!");
-        return"Try again"
+        return "Try again"
     } else {
         return Crypt(message, alphabet, key, textToChange, encode);
     }
