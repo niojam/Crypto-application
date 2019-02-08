@@ -11,6 +11,16 @@
     border-radius: 7px;
     cursor: pointer;
 }
+.button2{
+    margin-left: 5%;
+    transform: translateX(-30%) translateY(5px);
+    border: none;
+    background: #ffc8d0;
+    color: beige;
+    padding: 10px;
+    border-radius: 7px;
+    cursor: pointer;
+}
 
 .button1:hover{
     background-color: cadetblue;
