@@ -1,6 +1,6 @@
 function doOtpEncrypt() {
     let toEncode = true;
-    document1.getElementById("result").value = doOtpEncryptionOrDectyption(toEncode);
+    document.getElementById("result").value = doOtpEncryptionOrDectyption(toEncode);
 }
 
 function doOtpDecrypt() {
