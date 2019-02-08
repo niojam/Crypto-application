@@ -42,14 +42,34 @@ function Crypt(message, alphabet, key, textToChange, encode) {
     return message;
 }
 
-
 /*
- * A JavaScript implementation of the Secure Hash Algorithm, SHA-512, as defined
- * in FIPS 180-2
- * Version 2.2 Copyright Anonymous Contributor, Paul Johnston 2000 - 2009.
+ * Title: A JavaScript implementation of the Secure Hash Algorithm, SHA-512, as defined
+ * in FIPS 180-2 source code
+ * Author: Paul Johnston
+ * Date: 2000 - 2009
+ * Code version: Version 2.2 Copyright Anonymous Contributor
  * Other contributors: Greg Holt, Andrew Kepert, Ydnar, Lostinet
+ * Availability: https://asecuritysite.com/sha512.js
+ * Code adapted from https://asecuritysite.com/sha512.js
  * Distributed under the BSD License
- * See http://pajhome.org.uk/crypt/md5 for details.
+ * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
+ * following conditions are met:
+ *1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following
+ *disclaimer.
+ *
+ *2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following
+ *disclaimer in the documentation and/or other materials provided with the distribution.
+ *
+ *3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote
+ *products derived from this software without specific prior written permission.
+
+ *THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ *INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ *DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ *SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ *SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ *WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
+ *USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
 /*
@@ -76,43 +96,6 @@ function rstr_sha512(s)
 }
 
 /*
- * Calculate the HMAC-SHA-512 of a key and some data (raw strings)
- */
-function rstr_hmac_sha512(key, data)
-{
-    var bkey = rstr2binb(key);
-    if(bkey.length > 32) bkey = binb_sha512(bkey, key.length * 8);
-
-    var ipad = Array(32), opad = Array(32);
-    for(var i = 0; i < 32; i++)
-    {
-        ipad[i] = bkey[i] ^ 0x36363636;
-        opad[i] = bkey[i] ^ 0x5C5C5C5C;
-    }
-
-    var hash = binb_sha512(ipad.concat(rstr2binb(data)), 1024 + data.length * 8);
-    return binb2rstr(binb_sha512(opad.concat(hash), 1024 + 512));
-}
-
-/*
- * Convert a raw string to a hex string
- */
-function rstr2hex(input)
-{
-    try { hexcase } catch(e) { hexcase=0; }
-    var hex_tab = hexcase ? "0123456789ABCDEF" : "0123456789abcdef";
-    var output = "";
-    var x;
-    for(var i = 0; i < input.length; i++)
-    {
-        x = input.charCodeAt(i);
-        output += hex_tab.charAt((x >>> 4) & 0x0F)
-            +  hex_tab.charAt( x        & 0x0F);
-    }
-    return output;
-}
-
-/*
  * Convert a raw string to a base-64 string
  */
 function rstr2b64(input)
@@ -132,54 +115,6 @@ function rstr2b64(input)
             else output += tab.charAt((triplet >>> 6*(3-j)) & 0x3F);
         }
     }
-    return output;
-}
-
-/*
- * Convert a raw string to an arbitrary string encoding
- */
-function rstr2any(input, encoding)
-{
-    var divisor = encoding.length;
-    var i, j, q, x, quotient;
-
-    /* Convert to an array of 16-bit big-endian values, forming the dividend */
-    var dividend = Array(Math.ceil(input.length / 2));
-    for(i = 0; i < dividend.length; i++)
-    {
-        dividend[i] = (input.charCodeAt(i * 2) << 8) | input.charCodeAt(i * 2 + 1);
-    }
-
-    /*
-     * Repeatedly perform a long division. The binary array forms the dividend,
-     * the length of the encoding is the divisor. Once computed, the quotient
-     * forms the dividend for the next step. All remainders are stored for later
-     * use.
-     */
-    var full_length = Math.ceil(input.length * 8 /
-        (Math.log(encoding.length) / Math.log(2)));
-    var remainders = Array(full_length);
-    for(j = 0; j < full_length; j++)
-    {
-        quotient = Array();
-        x = 0;
-        for(i = 0; i < dividend.length; i++)
-        {
-            x = (x << 16) + dividend[i];
-            q = Math.floor(x / divisor);
-            x -= q * divisor;
-            if(quotient.length > 0 || q > 0)
-                quotient[quotient.length] = q;
-        }
-        remainders[j] = x;
-        dividend = quotient;
-    }
-
-    /* Convert the remainders to the output string */
-    var output = "";
-    for(i = remainders.length - 1; i >= 0; i--)
-        output += encoding.charAt(remainders[i]);
-
     return output;
 }
 
@@ -220,27 +155,6 @@ function str2rstr_utf8(input)
                 0x80 | ((x >>> 6 ) & 0x3F),
                 0x80 | ( x         & 0x3F));
     }
-    return output;
-}
-
-/*
- * Encode a string as utf-16
- */
-function str2rstr_utf16le(input)
-{
-    var output = "";
-    for(var i = 0; i < input.length; i++)
-        output += String.fromCharCode( input.charCodeAt(i)        & 0xFF,
-            (input.charCodeAt(i) >>> 8) & 0xFF);
-    return output;
-}
-
-function str2rstr_utf16be(input)
-{
-    var output = "";
-    for(var i = 0; i < input.length; i++)
-        output += String.fromCharCode((input.charCodeAt(i) >>> 8) & 0xFF,
-            input.charCodeAt(i)        & 0xFF);
     return output;
 }
 
