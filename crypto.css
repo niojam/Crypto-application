@@ -9,8 +9,8 @@ body {
     transform: translateX(20px);
 }
 
-.heading{
-    font-family: 'Raleway',sans-serif;
+.heading {
+    font-family: 'Raleway', sans-serif;
     padding-bottom: 7px;
     padding-top: 7px;
     text-align: center;
@@ -57,20 +57,22 @@ body {
     background-color: lightgrey;
 }
 
-.end{
+.end {
     margin-top: 10%;
     text-align: center;
 }
-.arrow1{
+
+.arrow1 {
     position: absolute;
     transform: translateX(-276%) translateY(65%);
 }
 
-.arrow2{
+.arrow2 {
     position: absolute;
     transform: translateX(61ch) translateY(53%);
 }
-.container{
+
+.container {
     text-align: center;
     margin-left: -10px;
     margin-right: -10px;
