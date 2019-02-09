@@ -12,22 +12,24 @@
 </div>
 <br>
 <form name="form">
-    <div class="text">
-        <label for="source_text">Please input your text</label>
-        <br>
-        <img class="arrow2" src="blue_line.png" alt="bluline2">
-        <textarea class="text_area" id="source_text" placeholder="Your text here!"></textarea>
-    </div>
-    <div class="text">
-        <label for="input_key">Please input key if required</label>
-        <img class="arrow1" src="blue_line.png" alt="blueline">
-        <br>
-        <textarea class="text_area" name="key" id="input_key" placeholder="Your key here!"></textarea>
-    </div>
-    <div class="text">
-        <label for="result">Here will be the result</label>
-        <br>
-        <textarea class="text_area" id="result" placeholder="Here will be your result!" readonly></textarea>
+    <div class="container">
+        <div class="text">
+            <label for="source_text">Please input your text</label>
+            <br>
+            <img class="arrow2" src="blue_line.png" alt="bluline2">
+            <textarea class="text_area" id="source_text" placeholder="Your text here!"></textarea>
+        </div>
+        <div class="text">
+            <label for="input_key">Please input key if required</label>
+            <img class="arrow1" src="blue_line.png" alt="blueline">
+            <br>
+            <textarea class="text_area" name="key" id="input_key" placeholder="Your key here!"></textarea>
+        </div>
+        <div class="text">
+            <label for="result">Here will be the result</label>
+            <br>
+            <textarea class="text_area" id="result" placeholder="Here will be your result!" readonly></textarea>
+        </div>
     </div>
     <div class="all_buttons">
         <button type="button" class="button" onclick="doOtpEncrypt()">OTP-encrypt</button>
