@@ -6,23 +6,24 @@ body {
     float: left;
     width: 100px;
     height: 100px;
-    transform: translateY(-15px) translateX(20px);
+    transform: translateX(20px);
 }
 
 .heading{
+    font-family: 'Raleway',sans-serif;
     padding-bottom: 7px;
     padding-top: 7px;
     text-align: center;
     margin-left: -10px;
     margin-right: -10px;
-    margin-top: -10px;
+    margin-top: -12px;
     background-color: #666;
-    font-size: 16px;
+    font-size: 19px;
     color: white;
 }
 
 .all_buttons {
-    margin-top: 5%;
+    margin-top: 4%;
     text-align: center;
 }
 
@@ -70,10 +71,10 @@ body {
     transform: translateX(61ch) translateY(53%);
 }
 .container{
+    text-align: center;
     margin-left: -10px;
     margin-right: -10px;
-    margin-top: -21px;
-    padding-top: 20px;
+    padding-top: 35px;
     padding-bottom: 25px;
     background: gainsboro;
 }
