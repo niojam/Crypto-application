@@ -1,18 +1,26 @@
+/*
+ * Main function that calls algorithmic function.
+ */
 function doOtpEncrypt() {
     let toEncode = true;
     document.getElementById("result").value = doOtpEncryptionOrDectyption(toEncode);
 }
 
+/*
+ * Main function that calls algorithmic function.
+ */
 function doOtpDecrypt() {
     let toEncode = false;
     document.getElementById("result").value = doOtpEncryptionOrDectyption(toEncode);
 }
 
+/*
+ *Declare all needed variables and check all the inputs. If everything is fine, start encrypting.
+ */
 function doOtpEncryptionOrDectyption(encode) {
     let textToChange = document.getElementById("source_text").value;
     let key = document.getElementById("input_key").value.toLowerCase();
     let alphabet = "abcdefghijklmnopqrstuvwxyz";
-    let message = "";
     if (textToChange.length < 1 || key.length < 1) {
         alert("Please insert text to encrypt and encryption key!");
         return "Try again"
@@ -21,11 +29,21 @@ function doOtpEncryptionOrDectyption(encode) {
         alert("Text length and key length must be same!");
         return "Try again"
     } else {
-        return Crypt(message, alphabet, key, textToChange, encode);
+        return Crypt(alphabet, key, textToChange, encode);
     }
 }
 
-function Crypt(message, alphabet, key, textToChange, encode) {
+
+/**
+ *
+ * @param alphabet String English alphabet.
+ * @param key String key which is used to decrypt or encrypt the text.
+ * @param textToChange String input text what is needed to be encrypted or decrypted.
+ * @param encode boolean what says what algorithm to use, encrypt or decrypt.
+ * @returns message String final output.
+ */
+function Crypt(alphabet, key, textToChange, encode) {
+    var message = "";
     for (let i = 0; i < textToChange.length; i++) {
         if (encode) {
             var indexOfKeyChar = alphabet.indexOf(key[i]);
@@ -80,8 +98,7 @@ function Crypt(message, alphabet, key, textToChange, encode) {
 var b64pad = ""; /* base-64 pad character. "=" for strict RFC compliance   */
 
 /*
- * These are the functions you'll usually want to call
- * They take string arguments and return either hex or base-64 encoded strings
+ * Take string arguments and return SHA512 base-64 encoded strings
  */
 function b64_sha512(s) {
     var textToChange = document.getElementById("source_text").value;
@@ -419,4 +436,8 @@ function int64add5(dst, a, b, c, d, e) {
     var w3 = (a.h >>> 16) + (b.h >>> 16) + (c.h >>> 16) + (d.h >>> 16) + (e.h >>> 16) + (w2 >>> 16);
     dst.l = (w0 & 0xffff) | (w1 << 16);
     dst.h = (w2 & 0xffff) | (w3 << 16);
+}
+
+function doMd5decrypt() {
+    alert("This function is not available now. Please come tomorrow :)")
 }
