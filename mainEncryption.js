@@ -36,6 +36,8 @@ function doOtpEncryptionOrDectyption(encode) {
 
 /**
  *
+ * Use algorithm and encrypt or decrypt input message.
+ *
  * @param alphabet String English alphabet.
  * @param key String key which is used to decrypt or encrypt the text.
  * @param textToChange String input text what is needed to be encrypted or decrypted.
