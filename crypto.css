@@ -4,6 +4,7 @@ body {
 
 .heading img {
     float: left;
+    transform: translateY(-10%) translateX(20%);
 }
 
 .heading {
@@ -37,9 +38,6 @@ body {
 .text {
     font-family: Arial, Helvetica, sans-serif;
     display: inline-block;
-    text-align: center;
-    margin-left: 8%;
-    transform: translateX(-25%);
 }
 
 .text_area {
@@ -59,14 +57,8 @@ body {
     text-align: center;
 }
 
-.arrow1 {
-    position: absolute;
-    transform: translateX(-276%) translateY(65%);
-}
-
-.arrow2 {
-    position: absolute;
-    transform: translateX(61ch) translateY(53%);
+.arrow {
+    transform: translateY(-10ch);
 }
 
 .container {
@@ -79,8 +71,6 @@ body {
 }
 
 .logo{
-    position: absolute;
     width: 120px;
     height: 120px;
-    transform: translateX(-510%) translateY(-8px);
 }
